@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Master Gumbo — Template (clone)</title>
+  <style>
+    :root{--accent:#C450FF;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Arial;background:linear-gradient(180deg,#071026 0%,#071426 100%);color:#e6eef8;line-height:1.4}
+    header{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#7c1ca2,#ff88ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;margin-bottom:24px}
+    .card{background:rgba(255,255,255,0.03);border-radius:12px;padding:18px}
+    h1{margin:0 0 8px;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 12px}
+    .meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px}
+    .video{background:#071326;border-radius:8px;padding:12px;text-align:center}
+    .video a{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#8C3CC1,#C450FF);color:white;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .item{display:flex;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02))}
+    .thumb{width:110px;height:78px;border-radius:6px;background:#0a0f1a;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
+    .info h3{margin:0 0 6px;font-size:16px}
+    .info p{margin:0 0 8px;color:var(--muted);font-size:13px}
+    .meta-row{display:flex;gap:8px;align-items:center}
+    .cmd{background:#071026;padding:10px;border-radius:8px;font-family:monospace;font-size:13px;user-select:text;white-space:pre-wrap}
+    .btn{display:inline-block;padding:8px 10px;border-radius:8px;background:rgba(196,80,255,0.15);border:1px solid rgba(196,80,255,0.12);cursor:pointer}
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
+    @media(max-width:900px){.hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr} .thumb{width:100px}}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">MG</div>
+      <div>
+        <div style="font-weight:700">Master Gumbo</div>
+        <div style="font-size:13px;color:var(--muted)">comandos, templates e criações</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#items">Comandos</a>
+      <a href="#about">Sobre</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <h1 id="home">Master Gumbo — Comandos e Templates</h1>
+        <p class="lead">Repositório de comandos para Minecraft — clique em um comando para copiar, assista o vídeo para escolher a versão correta.</p>
+        <div class="meta">Website criado por inon13 & Master Gumbo • Última atualização local</div>
+
+        <div style="margin-top:14px" class="card">
+          <h3 style="margin:0 0 8px">Filtro rápido</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" data-filter="all">Todos</button>
+            <button class="btn" data-filter="item">Item Giver</button>
+            <button class="btn" data-filter="book">Livro</button>
+            <button class="btn" data-filter="other">Outros</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card video">
+        <div style="font-weight:700;margin-bottom:8px">Assista primeiro</div>
+        <a href="#video" id="watch">Watch video!</a>
+      </aside>
+    </section>
+
+    <section id="items">
+      <div class="grid" id="itemsGrid">
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:18px" class="card">
+      <h3>Sobre</h3>
+      <p style="color:var(--muted)">Este site é uma implementação com a mesma estrutura do original. Contém cards com título, descrição, crédito, link para vídeo e o bloco de comando com botão de copiar.</p>
+    </section>
+
+    <footer>
+      Feito com ❤️ — diga o que quer ajustar e eu adapto.
+    </footer>
+  </main>
+
+  <script>
+    const data = [
+      {title: 'OP Template', desc: 'A useful template that allows you to make any item overpowered!', credit: 'Master Gumbo', type: 'item', video: 'https://www.youtube.com/', command: '/give @p stick[...]'},
+      {title: 'Force OP book [1.21]', desc: 'When a player clicks to go to the next page, it will make him do the command /op @a', credit: 'Master Gumbo', type: 'book', video: 'https://www.youtube.com/', command: '/give @p written_book[...]'},
+      {title:'OP Sword', desc:'A powerful sword that gives you reach, the ability to one-shot and more', credit:'Master Gumbo', type:'item', video:'https://www.youtube.com/', command:'/give @p minecraft:diamond_sword{...}'}
+    ];
+    const grid = document.getElementById('itemsGrid');
+    function render(items){
+      grid.innerHTML='';
+      items.forEach(it=>{
+        const el=document.createElement('article'); el.className='item card';
+        el.innerHTML = `
+          <div class="thumb">Imagem</div>
+          <div class="info">
+            <h3>${it.title}</h3>
+            <p>${it.desc}</p>
+            <div class="meta-row">
+              <div style="font-size:13px;color:var(--muted)">Credit: ${it.credit}</div>
+              <a href="${it.video}" target="_blank" class="btn" style="margin-left:8px">Vídeo</a>
+              <button class="btn copy" style="margin-left:8px" data-cmd='${escapeHtml(it.command)}'>Copiar comando</button>
+            </div>
+            <pre class="cmd" aria-hidden="true">${escapeHtml(it.command)}</pre>
+          </div>
+        `;
+        grid.appendChild(el);
+      })
+    }
+    function escapeHtml(str){return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');}
+    render(data);
+    document.addEventListener('click', e=>{
+      const btn = e.target.closest('.copy');
+      if(!btn) return;
+      const cmd = btn.getAttribute('data-cmd');
+      navigator.clipboard.writeText(cmd).then(()=>{
+        btn.textContent='Copiado!';
+        setTimeout(()=>btn.textContent='Copiar comando',1500);
+      }).catch(()=>{alert('Não foi possível copiar.');});
+    });
+    document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click', ()=>{
+      const f=b.getAttribute('data-filter');
+      if(f==='all') render(data); else render(data.filter(d=>d.type===f));
+    }));
+  </script>
+</body>
+</html>
